@@ -12,6 +12,9 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
+// Invocando las rutas
+app.use('/api', require('./routes'));
+
 app.listen(port, () => {
 	console.log(`App run port ${port}`);
 });
