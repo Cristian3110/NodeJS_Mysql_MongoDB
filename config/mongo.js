@@ -13,6 +13,7 @@ const dbConnect = () => {
 				console.log('***CONEXIÓN CORRECTA***');
 			} else {
 				console.log('***ERROR DE CONEXIÓN***');
+				console.log(err);
 			}
 		}
 	);

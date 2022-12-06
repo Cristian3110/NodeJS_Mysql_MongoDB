@@ -1,13 +1,23 @@
 const express = require('express');
+const {
+	getItems,
+	getItem,
+	createItem,
+	updateItem,
+	deleteItem,
+} = require('../controllers/tracks');
 const router = express.Router();
 
 //TODO: get, posst, delete, put de las canciones
 
-router.get('/', (req, res) => {
-	const data = ['hola', 'mundo'];
-	res.send('Hola Mundo');
+router.get('/', getItems);
 
-	res.send({ data });
-});
+router.get('/:id', getItem);
+
+router.post('/', createItem);
+
+router.put('/:id', updateItem);
+
+router.delete('/:id', deleteItem);
 
 module.exports = router;

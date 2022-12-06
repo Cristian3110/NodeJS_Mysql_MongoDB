@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const UserScheme = new mongoose.Schema(
 	{
@@ -17,6 +17,7 @@ const UserScheme = new mongoose.Schema(
 		},
 		role: {
 			type: ['user', 'admin'],
+			default: 'user',
 		},
 	},
 	{
