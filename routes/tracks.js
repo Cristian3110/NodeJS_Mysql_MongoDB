@@ -1,4 +1,5 @@
 const express = require('express');
+const validatorCreateItem = require('../validators/tracks');
 const {
 	getItems,
 	getItem,
@@ -14,7 +15,7 @@ router.get('/', getItems);
 
 router.get('/:id', getItem);
 
-router.post('/', createItem);
+router.post('/', validatorCreateItem, createItem);
 
 router.put('/:id', updateItem);
 
