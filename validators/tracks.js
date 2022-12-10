@@ -2,7 +2,7 @@ const { check } = require('express-validator');
 const validateResults = require('../utils/handleValidator');
 
 const validatorCreateItem = [
-	check('name').exists().notEmpty().isLength({ min: 5, max: 90 }),
+	check('name').exists().notEmpty(),
 	check('album').exists().notEmpty(),
 	check('cover').exists().notEmpty(),
 	check('artist').exists().notEmpty(),
@@ -18,4 +18,4 @@ const validatorCreateItem = [
 	},
 ];
 
-module.exports = validatorCreateItem;
+module.exports = { validatorCreateItem };

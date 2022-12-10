@@ -1,5 +1,5 @@
 const express = require('express');
-const validatorCreateItem = require('../validators/tracks');
+const { validatorCreateItem } = require('../validators/tracks');
 const {
 	getItems,
 	getItem,
