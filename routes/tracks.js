@@ -1,5 +1,7 @@
 const express = require('express');
+const custonHeader = require('../middleware/customHeader');
 const { validatorCreateItem } = require('../validators/tracks');
+
 const {
 	getItems,
 	getItem,
@@ -15,7 +17,7 @@ router.get('/', getItems);
 
 router.get('/:id', getItem);
 
-router.post('/', validatorCreateItem, createItem);
+router.post('/', validatorCreateItem, custonHeader, createItem);
 
 router.put('/:id', updateItem);
 
