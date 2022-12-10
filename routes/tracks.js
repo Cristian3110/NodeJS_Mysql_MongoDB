@@ -17,7 +17,8 @@ router.get('/', getItems);
 
 router.get('/:id', getItem);
 
-router.post('/', validatorCreateItem, custonHeader, createItem);
+// router.post('/', validatorCreateItem, custonHeader, createItem);
+router.post('/', validatorCreateItem, createItem);
 
 router.put('/:id', updateItem);
 
