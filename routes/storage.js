@@ -1,6 +1,6 @@
 const express = require('express');
 const uploadMIddleware = require('../utils/handleStorage');
-const { createItem } = require('../controllers/storage');
+const {createItem} = require('../controllers/storage');
 
 const router = express.Router();
 //TODO: localhost:3000/api/storage

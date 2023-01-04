@@ -1,3 +1,5 @@
+// This custonHeader is a validator
+
 const custonHeader = (req, res, next) => {
 	// console.log(req.headers);
 	try {
@@ -13,7 +15,7 @@ const custonHeader = (req, res, next) => {
 	} catch (err) {
 		console.log(err);
 		res.status(403);
-		res.send({ error: 'ALGO OCURRIÓ EN EL CUSTOM HEADER' });
+		res.send({error: 'ALGO OCURRIÓ EN EL CUSTOM HEADER'});
 	}
 };
 
