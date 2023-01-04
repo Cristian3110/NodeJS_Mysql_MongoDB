@@ -1,4 +1,4 @@
-const {matchedData} = require('express-validator'); //
+const {matchedData, body} = require('express-validator'); //
 const {tracksModel} = require('../models');
 const {handleHttpError} = require('../utils/handleError');
 
@@ -44,10 +44,34 @@ const createItem = async (req, res) => {
 };
 
 //actualizar un registro
-const updateItem = (req, res) => {};
+const updateItem = async (req, res) => {
+	try {
+		const {id, ...body} = matchedData(req);
+		// const {id} = body;
+		// console.log(body);
+		const data = await tracksModel.findOneAndUpdate(id, body);
+		res.send({data});
+	} catch (err) {
+		console.log(err);
+		handleHttpError(res, 'ERROR EN UPDATE ITEMS');
+	}
+};
 
 //eliminar un registro
-const deleteItem = (req, res) => {};
+const deleteItem = async (req, res) => {
+	try {
+		req = matchedData(req);
+		const {id} = req;
+		const data = await tracksModel.deleteOne({_id: id});
+		res.send({
+			msg: `Track con id: ${id} delete`,
+			data,
+		});
+	} catch (err) {
+		console.log(err);
+		handleHttpError(res, 'ERROR EN DELETE ITEMS');
+	}
+};
 
 module.exports = {
 	getItems,
