@@ -49,7 +49,7 @@ const updateItem = async (req, res) => {
 		const {id, ...body} = matchedData(req);
 		// const {id} = body;
 		// console.log(body);
-		const data = await tracksModel.findOneAndUpdate(id, body);
+		const data = await tracksModel.findByIdAndUpdate(id, body);
 		res.send({data});
 	} catch (err) {
 		console.log(err);
