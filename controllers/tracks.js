@@ -62,7 +62,8 @@ const deleteItem = async (req, res) => {
 	try {
 		req = matchedData(req);
 		const {id} = req;
-		const data = await tracksModel.deleteOne({_id: id});
+		// const data = await tracksModel.deleteOne({_id: id}); Aquí se elimina en físico de la data
+		const data = await tracksModel.delete({_id: id}); // aquí solo cambiamos el estado con el mongooseDelete
 		res.send({
 			msg: `Track con id: ${id} delete`,
 			data,
