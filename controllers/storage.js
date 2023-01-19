@@ -53,10 +53,10 @@ const deleteItem = async (req, res) => {
 		const findMedia = await storageModel.findById(id);
 		const fileName = findMedia.filename;
 		await storageModel.delete({_id: id});
-		fs.unlinkSync(`${MEDIA_PATH}/${fileName}`);
-
+		const filePath = `${MEDIA_PATH}/${fileName}`;
+		fs.unlinkSync(filePath);
 		const data = {
-			findMedia: fileName,
+			filePath,
 			deleted: true,
 		};
 
